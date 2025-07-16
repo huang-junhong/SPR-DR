@@ -15,16 +15,15 @@ pip install -r requirements.txt
 ```
 
 * Download pretrain model & test-set
-You can download our pre-trained SPR-DR models and part comparison models from [here][pretrain-model].
-Download BSD100 testSet from [here][bsd100]
-Download PIRM testset from [here][pirm]
-Download General-100 testset from [here][g100]
-Download Urban-100 testset form [here][u100]
-Download DIV2K-Valid testset from [here][div2k]
-Download Manga-109 testset from [here][manga109]
+You can download our pre-trained SPR-DR models and part comparison models from [here][pretrain-model].  
+Download BSD100 testSet from [here][bsd100]  
+Download PIRM testset from [here][pirm]  
+Download General-100 testset from [here][g100]  
+Download Urban-100 testset form [here][u100]  
+Download DIV2K-Valid testset from [here][div2k]  
+Download Manga-109 testset from [here][manga109]  
 
 
-<---------------------------------------------------------------------------------------------------------------------------------------------->
 [pretrain-model]: https://onedrive.live.com/?id=%2Fpersonal%2Fc961ef6a7e95bfe2%2FDocuments%2FOpenSourceModels%2FSISR&mkt=en%2DUS&lc=1033&view=0
 [bsd100]: https://huggingface.co/datasets/eugenesiow/BSD100
 [pirm]: https://pirm.github.io/
