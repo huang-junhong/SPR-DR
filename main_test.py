@@ -270,50 +270,49 @@ def calculate_iqas(sr_folder: str, hr_folder: str, iqas: List[str]):
                                    data=[[v] for v in values])
 
         
-def model_test(lr_folder: str, hr_folder: str, save_folder: str,
-               model_type: str, model_path: str, srf: int,
-               iqas: List[str]):
-    
-    lr_paths, hr_paths = prepare_data(lr_folder=lr_folder, hr_folder=hr_folder)
-    model = prepare_model(model_type=model_type, model_path=model_path, srf=srf)
-    test_process(lr_paths, model, save_folder)
-    calculate_iqas(save_folder, hr_folder, iqas)
+    def model_test(lr_folder: str, hr_folder: str, save_folder: str,
+                model_type: str, model_path: str, srf: int,
+                iqas: List[str]):
+        
+        lr_paths, hr_paths = prepare_data(lr_folder=lr_folder, hr_folder=hr_folder)
+        model = prepare_model(model_type=model_type, model_path=model_path, srf=srf)
+        test_process(lr_paths, model, save_folder)
+        calculate_iqas(save_folder, hr_folder, iqas)
 
-    print("complete")
-
-
-def parse_args():
-    parser = argparse.ArgumentParser(
-        description="Test trained models"
-    )
-
-    parser.add_argument("-mp", "--model_path", 
-                        help="The path of test model")
-    
-    parser.add_argument("-mt", "--model_type", 
-                        help="The model structure, it must in ['SRRes', 'RRDN', SwinIRS, SwinIRM] ")
-    
-    parser.add_argument("-srf", "--SRF", 
-                        help="The super-resolution factor of model")
-    
-    parser.add_argument("-lf", "--lr_folder", 
-                        help="The folder of low-resolution images")
-    
-    parser.add_argument("-sf", "--save_folder",
-                        help="The path to save super-resolution images")
-    
-    parser.add_argument("-hf", "--hr_folder",
-                        help="The path of correspond high-resolution images")
-    
-    parser.add_argument("-iqa", "--IQAs", 
-                        default=['psnr', 'ssim', 'lpips', 'dists'],
-                        help="The iqas need test")
-    
-    return parser.parse_args()
+        print("complete")
 
 
-if __name__ == "__main__":
-    args = parse_args()
+    def parse_args():
+        parser = argparse.ArgumentParser(
+            description="Test trained models"
+        )
 
-    model_test(lr_folder=args.lr_folder, hr_folder=args.hr_folder, save_folder=args.save_folder,
-               model_type=args.model_type, model_path=args.model_path, srf=args.srf, iqas=args.IQAs)
+        parser.add_argument("-mp", "--model_path", 
+                            help="The path of test model")
+        
+        parser.add_argument("-mt", "--model_type", 
+                            help="The model structure, it must in ['SRRes', 'RRDN', SwinIRS, SwinIRM] ")
+        
+        parser.add_argument("-srf", "--SRF", type=int,
+                            help="The super-resolution factor of model")
+        
+        parser.add_argument("-lf", "--lr_folder", 
+                            help="The folder of low-resolution images")
+        
+        parser.add_argument("-sf", "--save_folder",
+                            help="The path to save super-resolution images")
+        
+        parser.add_argument("-hf", "--hr_folder",
+                            help="The path of correspond high-resolution images")
+        
+        parser.add_argument("-iqa", "--IQAs", nargs="+", default=['psnr', 'ssim', 'lpips', 'dists'],
+                            help="The IQAs to evaluate. Use space to separate multiple values.")
+
+        return parser.parse_args()
+
+
+    if __name__ == "__main__":
+        args = parse_args()
+
+        model_test(lr_folder=args.lr_folder, hr_folder=args.hr_folder, save_folder=args.save_folder,
+                model_type=args.model_type, model_path=args.model_path, srf=args.srf, iqas=args.IQAs)
