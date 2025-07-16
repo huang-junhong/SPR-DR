@@ -1,7 +1,7 @@
 # SPR-DR
 The Official implementation of SPR-DR
 
-# Quick Test
+# Quick Test Model
 
 * Clone this repo.
 ```bash
@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 
 * Download pretrain model & test-set  
-You can download our pre-trained SPR-DR models and part comparison models from [here][pretrain-model].  
+Download our pre-trained SPR-DR models and part comparison models from [here][pretrain-model].  
 Download BSD100 testSet from [here][bsd100]  
 Download PIRM testset from [here][pirm]  
 Download General-100 testset from [here][g100]  
@@ -30,12 +30,18 @@ python test_model.py \
   --model_path ./model/SPR-DR-SRF4.pth \
   --model_type SRRes \
   --SRF 4 \
-  --lr_folder ./datasets/BSD100/LR \
+  --lr_folder ./datasets/BSD100/LR_x4 \
   --hr_folder ./datasets/BSD100/HR \
   --save_folder ./results/SPR-DR-SRF4 \
   --IQAs psnr ssim lpips dists
 ```
 The IQA calculate by [pytorch-iqa][pyiqa]
+
+# Ranker convolution kern effect validation (RSGD validation)
+Coming soon
+
+# Train Model
+Coming soon
 
 
 [pretrain-model]: https://onedrive.live.com/?id=%2Fpersonal%2Fc961ef6a7e95bfe2%2FDocuments%2FOpenSourceModels%2FSISR&mkt=en%2DUS&lc=1033&view=0
