@@ -1,0 +1,8 @@
+argparse
+numpy
+opencv-python
+torch==2.5.1
+pyiqa
+python-docx
+openpyxl
+PyYAML
