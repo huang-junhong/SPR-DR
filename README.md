@@ -44,7 +44,7 @@ Coming soon
 Coming soon
 
 
-[pretrain-model]: https://onedrive.live.com/?id=%2Fpersonal%2Fc961ef6a7e95bfe2%2FDocuments%2FOpenSourceModels%2FSISR&mkt=en%2DUS&lc=1033&view=0
+[pretrain-model]: https://1drv.ms/f/c/c961ef6a7e95bfe2/EqKlfNuFjCJCgOru9AzYAl4BL4w30N2EzFHn9JKNrzsF9g
 [bsd100]: https://huggingface.co/datasets/eugenesiow/BSD100
 [pirm]: https://pirm.github.io/
 [g100]: https://huggingface.co/datasets/goodfellowliu/General100
