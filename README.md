@@ -23,7 +23,7 @@ Download Urban-100 testset form [here][u100]
 Download DIV2K-Valid testset from [here][div2k]  
 Download Manga-109 testset from [here][manga109]
 
-* Run test script
+* Run test script  
 One example is:
 ```bash
 python test_model.py \
