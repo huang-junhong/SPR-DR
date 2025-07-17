@@ -291,7 +291,7 @@ def calculate_iqas(sr_folder: str, hr_folder: str, iqas: List[str]):
                             help="The path of test model")
         
         parser.add_argument("-mt", "--model_type", 
-                            help="The model structure, it must in ['SRRes', 'RRDN', SwinIRS, SwinIRM] ")
+                            help="The model structure, it must in ['SRRes', 'RRDN', 'real-RRDN', SwinIRS, SwinIRM] ")
         
         parser.add_argument("-srf", "--SRF", type=int,
                             help="The super-resolution factor of model")
