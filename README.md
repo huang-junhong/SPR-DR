@@ -38,7 +38,7 @@ python test_model.py \
 The IQA calculate by [pytorch-iqa][pyiqa]
 
 # Ranker convolution kern effect validation (RSGD validation)
-Coming soon
+Coming soon (before 2025.8.11)
 
 # Train Model
 Coming soon
