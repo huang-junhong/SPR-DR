@@ -39,6 +39,7 @@ The IQA calculate by [pytorch-iqa][pyiqa]
 
 # Ranker convolution kern effect validation (RSGD validation)
 We provide a proctype code to valuate 'effectless' kenr by RSGD in test_RSGD.py. This code not clean up, so all the model and data path is abs-path in our server, so you may change it to yours.
+We will update this code for on 2025.8.26.
 
 # Train Model
 Coming soon
