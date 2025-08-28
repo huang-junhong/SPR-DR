@@ -42,7 +42,7 @@ We provide a proctype code to valuate 'effectless' kenr by RSGD in test_RSGD.py.
 
 The pretrained discriminator of SPR-R you an download at [here][pretrain-model].
 
-We will update this code for on 2025.8.26.
+We will update this code soon.
 
 # Train Model
 Coming soon
