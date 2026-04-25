@@ -152,7 +152,7 @@ Use `swinir-m` for the medium preset and `swinir-s` for the lightweight preset. 
 ## Citation
 
 If this code is useful in your research, please cite 
-```bash
+```yaml
 @INPROCEEDINGS{11462166, author={Huang, JunHong and Zang, HangXing and Hu, QingSong and Huang, XingHan and Zhang, Rui}, booktitle={ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, title={Single Image Super-Resolution with Selective Perceptual Refinement and Distribution-Constancy Ranking}, year={2026}, volume={}, number={}, pages={2646-2650}, keywords={Feedback;Circuits;Pixel;Protocols;HTTP;Digital images;Fuses;Learning (artificial intelligence);Convolutional neural networks;Artificial intelligence;SISR;GAN;Learn-to-Rank;Image hybrid}, doi={10.1109/ICASSP55912.2026.11462166}}
 ```
 
