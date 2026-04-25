@@ -1,0 +1,32 @@
+model:
+  # Supported: srres, rrdn, real-rrdn, swinir-m, swinir-s
+  generator: swinir-m
+  srf: 4
+  pretrain_path: null
+  model_key: null
+  optimizer: adam
+  init_lr: 0.0
+  decay_schedule: null
+  # Optional when generator is swinir-m or swinir-s.
+  # swinir_config:
+  #   img_size: 64
+  #   window_size: 8
+
+checkpoint:
+  path: ./checkpoints/SPR-DR-SwinIR-M-X4.pth
+  key: null
+  strict: true
+
+test:
+  device: cuda
+  metrics: [psnr, ssim, lpips]
+  datasets:
+    - name: BSD100
+      root: ./datasets/val/BSD100/SRF4
+    - name: DIV2K
+      lr_dir: ./datasets/val/DIV2K/DIV2K_valid_LRx4
+      hr_dir: ./datasets/val/DIV2K/DIV2K_valid_HR
+  output_dir: ./outputs/test_results
+  save_images: true
+  save_ext: .png
+  save_csv: true

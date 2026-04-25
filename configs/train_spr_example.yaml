@@ -1,0 +1,113 @@
+#-------------------------------------------------------------------------------------
+# Generator config
+#-------------------------------------------------------------------------------------
+generator_config:
+  # Supported: srres, rrdn, real-rrdn, swinir-m, swinir-s
+  generator: srres
+  pretrain_path: null
+  model_key: ~
+  init_lr: 1e-4            # if 0, test mode
+  optimizer: adam
+  accumulate_times: 1
+  decay_schedule:               # None for real
+    mode: MultiStepLR 
+    decay_iter: [50000, 100000, 200000, 400000] 
+    decay_weight: 0.5
+  loss_config:
+    pixel_loss:
+      type: l1
+      weight: 0.01
+      usm: False
+    perceptual:
+      type: l1
+      model: vgg19
+      layer: [2, 7, 17, 25, 34]
+      weight: [0.1, 0.1, 1., 1., 1.]
+    adversarial:
+      type: ragan
+      weight: 5e-3
+      margin: 0.5
+  # Optional when generator is swinir-m or swinir-s.
+  # Values here override the built-in preset.
+  # swinir_config:
+  #   img_size: 64
+  #   window_size: 8
+
+#-------------------------------------------------------------------------------------
+# Discriminator config
+#-------------------------------------------------------------------------------------
+discriminator_config:
+  discriminator: vgg-like
+  normlize: in
+  pretrain_path: ~
+  model_key: ~
+  loss_type: ragan
+  init_lr: 1e-4
+  optimizer: adam
+  accumulate_times: 3
+  decay_schedule:               # None for real
+    mode: MultiStepLR 
+    decay_iter: [50000, 100000, 200000, 400000] 
+    decay_weight: 0.5
+  special_train: ~
+  loss_weight: 1
+  margin: 0.5
+  discriminator_num: 1
+
+#-------------------------------------------------------------------------------------
+# SPR config
+#-------------------------------------------------------------------------------------
+spr_config:
+  real_portion: adaptive
+  mode: spr-a      # random, spr, hpr, spr-a, checkboard
+  roll_prob: 0.5           # if checkboard must = 0
+  ranker_num: 2
+  ranker_1:
+    - [16, 16]
+    - [4, 4]
+  ranker_2:
+    - [32, 16]
+    - [16, 4]
+
+#-------------------------------------------------------------------------------------
+# Trin config
+#-------------------------------------------------------------------------------------
+train_config:
+  iter_per_epoch: 1000
+  train_iter: 600000
+
+#-------------------------------------------------------------------------------------
+# TensorBoard config
+#-------------------------------------------------------------------------------------
+tensorboard:
+  log_dir: null   # null means use validation.save_root
+  log_interval: 100
+
+#-------------------------------------------------------------------------------------
+# Data config
+#-------------------------------------------------------------------------------------
+data_config:
+  srf: 4
+  hr_size: 128
+  batch_size: 16
+  mode: synthetic
+  need_l1: True
+  l1_mode: d1
+  trainset:
+    - ./datasets/train
+
+#-------------------------------------------------------------------------------------
+# validation & save config
+#-------------------------------------------------------------------------------------
+validation:
+  testset:
+    - name: Set5
+      root: ./datasets/val/Set5/SRF4
+  iqas: ['psnr', 'lpips', 'niqe'] 
+  need_gan_metric: False
+  save_root: ./outputs/spr_experiment
+
+#-------------------------------------------------------------------------------------
+# train note
+#-------------------------------------------------------------------------------------
+note: train spr
